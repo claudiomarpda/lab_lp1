@@ -3,6 +3,7 @@
 #include "Date.h"
 #include "Invoice.h"
 #include "Employee.h"
+#include "Person.h"
 
 using namespace std;
 
@@ -10,10 +11,13 @@ using namespace std;
 void ex01();
 void ex02();
 void ex03();
+void ex04();
 
 /**
-    ./tests number_of_args arg
-    ./tests 1 1
+    Main function makes all the tests asked.
+
+    @param argc is the number of arguments
+    @param argv contains the arguments
 */
 int main(int argc, char* argv[]) {    
 
@@ -40,9 +44,23 @@ int main(int argc, char* argv[]) {
         case 3:
             ex03();
             break;
+        case 4:
+            ex04();
+            break;
     }
 
     return 0;
+}
+
+void ex04() {
+    Person p1("Roberto");
+    cout << p1 << endl;
+    p1.setAge(26);
+    p1.setPhone("+55 083 911112222");
+    cout << p1 << endl;
+
+    Person p2("James", 21, "+55 083 911113333");
+    cout << p2 << endl;
 }
 
 void ex03() {

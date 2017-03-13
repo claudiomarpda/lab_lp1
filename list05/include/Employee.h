@@ -1,7 +1,3 @@
-//
-// Created by mz on 09/03/17.
-//
-
 #ifndef LIST05_3_EMPLOYEE_H
 #define LIST05_3_EMPLOYEE_H
 
