@@ -6,6 +6,8 @@
 #include "Person.h"
 #include "Expense.h"
 #include "ExpenseControl.h"
+#include "Payment.h"
+#include "PaymentControl.h"
 
 using namespace std;
 
@@ -15,6 +17,7 @@ void ex02();
 void ex03();
 void ex04();
 void ex05();
+void ex06();
 
 /**
     Main function makes all the tests asked.
@@ -53,9 +56,32 @@ int main(int argc, char* argv[]) {
         case 5:
             ex05();
             break;
+        case 6:
+            ex06();
+            break;  
     }
 
     return 0;
+}
+
+void ex06() {
+    const string employee01 = "Carlos Alberto";
+    const string employee02 = "Alison Jorge";
+    const string employee03 = "Italo";
+
+    Payment payment01 (employee01, 10000);
+    Payment payment02 (employee02, 12000);
+    vector<Payment> Payments = {payment01, payment02};
+
+    PaymentControl PaymentControl;
+    PaymentControl.setPayments(Payments);
+
+    cout << "Is there payment for employee " << employee01 << "? ";
+    PaymentControl.isTherePaymentForEmployee(employee01)? cout << "Yes" << endl : cout << "No" << endl;
+    cout << "Is there payment for employee " << employee03 << "? ";
+    PaymentControl.isTherePaymentForEmployee(employee03)? cout << "Yes" << endl: cout << "No" << endl;
+
+    cout << "Total of Payments: " << PaymentControl.calculateTotalPayment() << endl;
 }
 
 void ex05() {

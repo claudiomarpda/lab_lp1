@@ -12,5 +12,7 @@ echo "\n# Exercise 04...\n"
 ./tests 1 4
 echo "\n# Exercise 05...\n"
 ./tests 1 5
+echo "\n# Exercise 06...\n"
+./tests 1 6
 
 echo "\n# Tests finished! \n"
