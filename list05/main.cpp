@@ -4,6 +4,8 @@
 #include "Invoice.h"
 #include "Employee.h"
 #include "Person.h"
+#include "Expense.h"
+#include "ExpenseControl.h"
 
 using namespace std;
 
@@ -12,6 +14,7 @@ void ex01();
 void ex02();
 void ex03();
 void ex04();
+void ex05();
 
 /**
     Main function makes all the tests asked.
@@ -47,9 +50,28 @@ int main(int argc, char* argv[]) {
         case 4:
             ex04();
             break;
+        case 5:
+            ex05();
+            break;
     }
 
     return 0;
+}
+
+void ex05() {
+    Expense expense01 (EXPENSE_T01, 5000);
+    Expense expense02 (EXPENSE_T02, 20000);
+    vector<Expense> expenses = {expense01, expense02};
+
+    ExpenseControl expenseControl;
+    expenseControl.setExpenses(expenses);
+
+    cout << "Is there expense of type " << EXPENSE_T01 << "? ";
+    expenseControl.isThereExpenseOfType(EXPENSE_T01)? cout << "Yes" << endl : cout << "No" << endl;
+    cout << "Is there expense of type " << EXPENSE_T03 << "? ";
+    expenseControl.isThereExpenseOfType(EXPENSE_T03)? cout << "Yes" << endl: cout << "No" << endl;
+
+    cout << "Total of expenses: " << expenseControl.calculateTotalExpenses() << endl;
 }
 
 void ex04() {
