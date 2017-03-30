@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include "Clock.h"
 #include "Television.h"
+#include "HomemadeRestaurant.h"
 
 using namespace std;
 
 // Prototypes
 void ex01();
 void ex02();
-//void ex03();
+void ex03();
 
 /**
     Main function makes all the tests asked.
@@ -37,16 +38,18 @@ int main(int argc, char* argv[]) {
             break;
         case 2:
             ex02();
-            break;/*
+            break;
         case 3:
             ex03();
-            break;*/
+            break;
     }
 
     return 0;
 }
 
-// Clock tests
+/**
+    Clock tests
+*/
 void ex01() {
     Clock c1;
     c1.setHorary(9, 3, 59);
@@ -66,8 +69,9 @@ void ex01() {
     cout << "Second horary after 24 hours ";
     cout << c1 << endl;
 }
-
-// Television tests
+/**
+    Television tests
+*/
 void ex02() {
     Television t1;
     cout << "Initial channel " << t1.getChannel() << endl;
@@ -100,4 +104,40 @@ void ex02() {
         t1.channelDown();
     }
     cout << "Channel now is " << t1.getChannel() << endl;
+}
+
+/**
+    Restaurant tests
+*/
+void ex03() {
+    cout << "Creating restaurant.." << endl;
+    HomemadeRestaurant r;
+
+    cout << "Creating tables.." << endl;
+    RestaurantTable t1;
+    RestaurantTable t2;
+
+    cout << "Adding tables to the restaurant..." << endl;
+    r.addTable(t1);
+    r.addTable(t2);
+
+    cout << "Creating orders.." << endl;
+    Order o1(101, 2, "This is a description of an item.", 5.0f);
+    Order o2(102, 2, "This is a description of an item.", 10.0f);
+
+    Order o3(103, 5, "This is a description of an item.", 2.0f);
+    Order o4(104, 1, "This is a description of an item.", 4.0f);
+
+    cout << "Adding orders to tables 01" << endl;
+    // add orders to table 01
+    r.addOrderToTable(0, o1);
+    r.addOrderToTable(0, o2);
+
+    cout << "Adding orders to tables 02" << endl;
+    // add orders to table 02
+    r.addOrderToTable(1, o3);
+    r.addOrderToTable(1, o4);
+
+    cout << "Total of sales: " << r.calculateTotalSales() << endl;
+
 }
