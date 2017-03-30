@@ -1,13 +1,14 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Clock.h"
+#include "Television.h"
 
 using namespace std;
 
 // Prototypes
 void ex01();
-/*void ex02();
-void ex03();*/
+void ex02();
+//void ex03();
 
 /**
     Main function makes all the tests asked.
@@ -34,9 +35,9 @@ int main(int argc, char* argv[]) {
         case 1:
             ex01(); 
             break;
-        /*case 2:
+        case 2:
             ex02();
-            break;
+            break;/*
         case 3:
             ex03();
             break;*/
@@ -45,6 +46,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
+// Clock tests
 void ex01() {
     Clock c1;
     c1.setHorary(9, 3, 59);
@@ -63,4 +65,39 @@ void ex01() {
     // this horary must be the same as the first output
     cout << "Second horary after 24 hours ";
     cout << c1 << endl;
+}
+
+// Television tests
+void ex02() {
+    Television t1;
+    cout << "Initial channel " << t1.getChannel() << endl;
+    cout << "Initial volume " << t1.getVolume() << endl;
+
+    cout << "Volume up 10x..." << endl;
+    for(int i = 0; i < 10; i++) {
+        t1.volumeUp();
+    }
+    cout << "Volume now is " << t1.getVolume() << endl;
+
+    cout << "Volume down 5x..." << endl;
+    for(int i = 0; i < 5; i++) {
+        t1.volumeDown();
+    }
+    cout << "Volume now is " << t1.getVolume() << endl;
+
+    cout << "Setting channel to " << 9 << endl;
+    t1.setChannel(9);
+    cout << "Channel now is " << t1.getChannel() << endl;
+
+    cout << "Channel up 20x..." << endl;
+    for(int i = 0; i < 20; i++) {
+        t1.channelUp();
+    }
+    cout << "Channel now is " << t1.getChannel() << endl;
+
+    cout << "Channel down 20x..." << endl;
+    for(int i = 0; i < 20; i++) {
+        t1.channelDown();
+    }
+    cout << "Channel now is " << t1.getChannel() << endl;
 }
