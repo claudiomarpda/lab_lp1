@@ -140,4 +140,11 @@ void ex03() {
 
     cout << "Total of sales: " << r.calculateTotalSales() << endl;
 
+    cout << "Clearing orders of table 01..." << endl;
+    r.clearTableAt(0);
+    cout << "Clearing orders of table 02..." << endl;
+    r.clearTableAt(1);
+    cout << "Total of sales table 01: " << t1.calculateTotal() << endl;
+    cout << "Total of sales table 02: " << t2.calculateTotal() << endl;
+    cout << "Total of sales: " << r.calculateTotalSales() << endl;
 }

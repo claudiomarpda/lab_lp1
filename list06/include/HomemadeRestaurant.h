@@ -20,6 +20,8 @@ public:
     double calculateTotalSales();
 
     const vector<RestaurantTable> &getTables() const;
+
+    void clearTableAt(unsigned int index);
 };
 
 

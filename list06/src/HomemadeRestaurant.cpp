@@ -25,3 +25,10 @@ double HomemadeRestaurant::calculateTotalSales() {
 const vector<RestaurantTable> &HomemadeRestaurant::getTables() const {
     return tables;
 }
+
+void HomemadeRestaurant::clearTableAt(unsigned int index) {
+    if(index > tables.size()) {
+        return;
+    }
+    tables.at(index).clearOrders();
+}
