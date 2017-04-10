@@ -1,28 +1,11 @@
-ERROR	=	\33[31;5mERROR\33[m
-OK		=	\33[32;5mOK\033[m
-CHECK =	echo "\33[32;5mOK\33[m" || echo "\33[31;5mERROR\33[m"
+EX01:=$(CURDIR)/Exercise01
 
-BIN		=	tests
-CXX		=	g++
-CFLAGS	=	-g -ggdb -Wall -Wextra -O3 -std=c++0x
+MAKEFILESDIR:="${EX01}"
 
-MAIN		= ./main.cpp
-HEADERS		= $(shell find . -type f -path "*include/*.h")
-MODULES		= $(shell find . -type f -path "*src/*.cpp")
-INCLUDE		= $(addprefix -I , $(dir ${HEADERS}))
-SOURCES		= ${MAIN} ${MODULES}
-MODULEOBJS	= ${MODULES:.cpp=.o}
+all: compile
 
-OBJECTS	= $(SOURCES:%.cpp=%.o)
-
-all: ${OBJECTS}
-	@echo -n "Building project ... "
-	@$(CXX) ${OBJECTS} ${INCLUDE} ${CFLAGS} -o ${BIN} && echo "${OK}" || (echo "${ERROR}"; exit 1;)
+compile:
+	@ for i in ${MAKEFILESDIR}; do $(MAKE) -C "$$i" || exit; done
 
 clean:
-	@echo -n "Cleaning ... "
-	@rm -f ${OBJECTS} ${BIN} && echo "${OK}" || (echo "${ERROR}"; exit 1;)
-
-%.o: %.cpp
-	@echo -n "Compiling $(notdir $<) to $(notdir $@) ... "
-	@$(CXX) ${INCLUDE} ${CFLAGS} -c $< -o $@  && ${CHECK}
+	@ for i in ${MAKEFILESDIR}; do $(MAKE) clean -C "$$i" || exit; done
