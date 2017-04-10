@@ -11,7 +11,7 @@ private:
 public:
     Circle(const string &name, double radius);
 
-    double calculateArea() const;
+    virtual double calculateArea() const;
 };
 
 

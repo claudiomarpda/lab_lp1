@@ -11,7 +11,7 @@ private:
 public:
     Square(const string &name, double side);
 
-    double calculateArea() const;
+    virtual double calculateArea() const;
 };
 
 #endif //LIST07_1_SQUARE_H

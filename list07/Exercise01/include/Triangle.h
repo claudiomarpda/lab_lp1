@@ -12,7 +12,7 @@ private:
 public:
     Triangle(const string &name, double base, double height);
 
-    double calculateArea() const;
+    virtual double calculateArea() const;
 };
 
 
