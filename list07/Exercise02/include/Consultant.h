@@ -8,8 +8,7 @@
  */
 class Consultant : public Employee {
 
-private:
-    const float BONUS = 10.0f; // in percentage
+static const float BONUS = 10.0f; // in percentage
 
 public:
     Consultant(int registration, const string &name, float salary);
