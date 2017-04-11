@@ -3,12 +3,13 @@
 
 #include "Employee.h"
 
+static const float BONUS = 10.0f; // in percentage
+
 /**
  * A consultant employee that has a salary bonus.
  */
 class Consultant : public Employee {
 
-static const float BONUS = 10.0f; // in percentage
 
 public:
     Consultant(int registration, const string &name, float salary);

@@ -1,8 +1,9 @@
 EX01:=$(CURDIR)/Exercise01
 EX02:=$(CURDIR)/Exercise02
 EX03:=$(CURDIR)/Exercise03
+EX04:=$(CURDIR)/Exercise04
 
-MAKEFILESDIR:="${EX01}" "${EX02}" "${EX03}"
+MAKEFILESDIR:="${EX01}" "${EX02}" "${EX03}" "${EX04}"
 
 all: compile
 
