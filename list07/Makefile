@@ -1,6 +1,7 @@
 EX01:=$(CURDIR)/Exercise01
+EX02:=$(CURDIR)/Exercise02
 
-MAKEFILESDIR:="${EX01}"
+MAKEFILESDIR:="${EX01}" "${EX02}"
 
 all: compile
 
