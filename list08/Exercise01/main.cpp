@@ -48,5 +48,10 @@ int main() {
     abstractAccount4->print();
     cout << endl;
 
+    delete abstractAccount3;
+    delete abstractAccount4;
+    abstractAccount3 = NULL;
+    abstractAccount4 = NULL;
+
     return 0;
 }
