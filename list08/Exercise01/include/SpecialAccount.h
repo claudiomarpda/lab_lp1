@@ -6,6 +6,9 @@
 class SpecialAccount : public Account{
 
 public:
+
+	~SpecialAccount();
+
     SpecialAccount(const string &clientName, float mensalSalary, const string &accountNumber, float balance);
 
 private:

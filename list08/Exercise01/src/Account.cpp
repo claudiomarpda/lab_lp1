@@ -6,6 +6,10 @@ Account::Account(const string &clientName, float mensalSalary, const string &acc
     defineLimit();
 }
 
+Account::~Account() {
+    std::cout << "Destructor of Account" << endl;
+}
+
 const string &Account::getClientName() const {
     return clientName;
 }

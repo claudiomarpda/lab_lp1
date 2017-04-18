@@ -4,6 +4,9 @@
 class AbstractAccount {
 
 public:
+
+	virtual ~AbstractAccount() = 0;
+
     virtual void withdraw(const double value) = 0 ;
 
     virtual void deposit(const double value) = 0;

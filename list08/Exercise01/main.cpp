@@ -41,7 +41,7 @@ int main() {
     abstractAccount3->print();
     cout << endl;
 
-    AbstractAccount* abstractAccount4 = new Account("Name4", 10000, "333333", 0);
+    AbstractAccount* abstractAccount4 = new SpecialAccount("Name4", 10000, "333333", 0);
     abstractAccount4->print();
     abstractAccount4->deposit(5000);
     abstractAccount4->withdraw(1000);

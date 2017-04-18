@@ -23,6 +23,8 @@ public:
 
     Account(const string &clientName, float mensalSalary, const string &accountNumber, float balance);
 
+    virtual ~Account();
+
     const string &getClientName() const;
 
     void setClientName(const string &clientName);
