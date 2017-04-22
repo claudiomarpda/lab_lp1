@@ -1,34 +1,36 @@
 #include "PayrollControl.h"
-#include "EmployeeNotFoundException.h"
-
+#include "BudgetExceededException.h"
 
 void PayrollControl::setEmployees(const vector<Employee *> &employees) {
     PayrollControl::employees = employees;
 }
 
-const vector<Employee *> &PayrollControl::getEmployees() const {
-    return employees;
-}
-
-double PayrollControl::calculateTotalPayroll() {
+double PayrollControl::calculateTotalPayroll() throw (BudgetExceededException) {
     if(employees.size() == 0) {
         return 0;
     }
 
-    double total = 0;
+    double totalPayroll = 0;
     for (auto item : employees) {
-        total += item->calculateSalary();
+        totalPayroll += item->calculateSalary();
     }
-    return total;
+
+    if(availableCash < totalPayroll) {
+        throw BudgetExceededException(totalPayroll);
+    }
+    return totalPayroll;
 }
 
-double PayrollControl::checkEmployeeSalary(int id) {
+void PayrollControl::setAvailableCash(double availableCash) {
+    PayrollControl::availableCash = availableCash;
+}
+
+double PayrollControl::checkEmployeeSalary(int id) throw (EmployeeNotFoundException) {
     for (auto item : employees) {
         if(item->getId() == id) {
             return item->calculateSalary();
         }
     }
-//    throw EmployeeNotFoundException("Employee not found.");
     throw EmployeeNotFoundException();
 }
 

@@ -4,6 +4,8 @@
 
 #include <vector>
 #include "Employee.h"
+#include "EmployeeNotFoundException.h"
+#include "BudgetExceededException.h"
 
 using namespace std;
 
@@ -11,16 +13,17 @@ class PayrollControl {
 
 private:
     vector<Employee *> employees;
+    double availableCash;
 
 public:
 
+    void setAvailableCash(double availableCash);
+
     void setEmployees(const vector<Employee *> &employees);
 
-    const vector<Employee *> &getEmployees() const;
+    double calculateTotalPayroll() throw(BudgetExceededException);
 
-    double calculateTotalPayroll();
-
-    double checkEmployeeSalary(int id);
+    double checkEmployeeSalary(int id) throw(EmployeeNotFoundException);
 };
 
 

@@ -6,7 +6,6 @@
 class EmployeeNotFoundException : public runtime_error {
 
 public:
-//    EmployeeNotFoundException(const std::string &__arg) : runtime_error(__arg) {}
     EmployeeNotFoundException() : runtime_error("Employee not found.") {}
 };
 

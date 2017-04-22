@@ -18,6 +18,25 @@ int main() {
 
     payrollControl.setEmployees(employees);
 
+    cout << "Looking for non existent employee..." << endl;
+    try {
+        payrollControl.checkEmployeeSalary(4);
+    }catch (EmployeeNotFoundException &e) {
+        cout << "Exception: " << e.what() << endl << endl;
+    }
+
+    payrollControl.setAvailableCash(1000);
+    cout << "Calculating payroll without enough money..." << endl;
+    try{
+        cout << "Payroll total value: " << payrollControl.calculateTotalPayroll() << endl;
+    }
+    catch(BudgetExceededException &e) {
+        cout << "Exception: " << e.what() << endl << endl;
+    }
+
+    cout << "Increasing money available for payroll..." << endl;
+    payrollControl.setAvailableCash(10000);
+
     cout << "Checking employees salary in Payroll..." << endl;
     cout << "Employee ID 1: " << payrollControl.checkEmployeeSalary(1) << endl;
     cout << "Employee ID 2: " << payrollControl.checkEmployeeSalary(2) << endl;
