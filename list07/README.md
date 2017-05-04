@@ -1,3 +1,4 @@
+<h1> Inheritance </h1>
 <h2> List of exercises 07 </h2>
 
 Compile the project with the following command in terminal:<br>

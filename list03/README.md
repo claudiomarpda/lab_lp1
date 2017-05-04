@@ -1,0 +1,8 @@
+<h1> C language: arrays, strings and structures </h1>
+<h2> List of exercises 03 </h2>
+
+Compile the project with the following command in terminal:<br>
+`$ make`
+
+Run the tests with the following:<br>
+`$ ./run`
